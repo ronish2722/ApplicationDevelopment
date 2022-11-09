@@ -1,25 +1,19 @@
-﻿// See https://aka.ms/new-console-template for more information
-
+﻿using System.Text.RegularExpressions;
 using Year3ConsoleApp.Basics;
 using Year3ConsoleApp.Testing;
 using Year3ConsoleApp.Week2;
+using Year3ConsoleApp.Week3;
 
 
 //getting input from users
-// Declare variables and then initialize to zero.
-int num1 = 0; int num2 = 0;
+
 
 // Display title as the C# console calculator app.
 Console.WriteLine("Console Calculator in C#\r");
 Console.WriteLine("------------------------\n");
-
-// Ask the user to type the first number.
-Console.WriteLine("Type a number, and then press Enter");
-num1 = Convert.ToInt32(Console.ReadLine());
-
-// Ask the user to type the second number.
-Console.WriteLine("Type another number, and then press Enter");
-num2 = Convert.ToInt32(Console.ReadLine());
+start:
+// Declare variables and then initialize to zero.
+int num1 = 0; int num2 = 0;
 
 // Ask the user to choose an option.
 Console.WriteLine("Choose an option from the following list:");
@@ -37,9 +31,33 @@ Console.WriteLine("Press 11 for While Statement Example");
 Console.WriteLine("Press 12 for Do-While Statement Example");
 Console.WriteLine("Press 13 for For Statement Example");
 Console.WriteLine("Press 14 for For-Each Statement Example");
+Console.WriteLine("Press 14 for For-Each Statement Example");
+Console.WriteLine("Press 15 for to check prime");
+Console.WriteLine("Press 16 to check odd or even");
+Console.WriteLine("Press 17 to swap");
+Console.WriteLine("Press 18 to search in array");
 Console.Write("Your option? ");
 
+
 var a = Console.ReadLine();
+
+if (a == "1" || a == "2" || a == "3" || a == "4" || a == "9"  || a == "17")
+{
+    // Ask the user to type the first number.
+    Console.WriteLine("Type a number, and then press Enter");
+    num1 = Convert.ToInt32(Console.ReadLine());
+
+    // Ask the user to type the second number.
+    Console.WriteLine("Type another number, and then press Enter");
+    num2 = Convert.ToInt32(Console.ReadLine());
+}
+
+if (a == "11" || a == "12" || a == "13" || a == "15" || a == "16" || a == "18")
+{
+    Console.WriteLine("Type a number, and then press Enter");
+    num1 = Convert.ToInt32(Console.ReadLine());
+}
+
 // Use a switch statement to do the math.
 switch (a)
 {
@@ -68,10 +86,10 @@ switch (a)
         Arrays.MultiDimensionalArray();
         break;
     case "9":
-        ControlStatement.IfElse(num1, num2);
+        JumpStatement.IfElse(num1, num2);
         break;
     case "10":
-        ControlStatement.SwitchCase();
+        SelectStatement.SwitchCase();
         break;
     case "11":
         ControlStatement.WhileStatement(num1);
@@ -85,11 +103,37 @@ switch (a)
     case "14":
         ControlStatement.ForEachLoop();
         break;
+    case "15":
+        Prime.IsPrime(num1);
+        break;
+    case "16":
+        OddOrEven.CheckOddEven(num1);
+        break;
+    case "17":
+        Swap.Swapping(num1, num2);
+        break;
+    case "18":
+        SearchArray.Search(num1);
+        break;
     default:
         Interpolation.StringInterpolation();
         break;
 }
 
-// Wait for the user to respond before closing.
-Console.Write("Press any key to close the Calculator console app...");
-Console.ReadKey();
+rerun:
+Console.Write("Do you want to run the program again?[y/n]");
+var option = Console.ReadLine();
+
+switch (option)
+{
+    case "y":
+        goto start;
+
+    case "n":
+        Console.Write("Press any key to close the Calculator console app...");
+        Console.ReadKey();
+        break;
+    default:
+        Console.Write("Please select the from the given options.");
+        goto rerun;
+}
