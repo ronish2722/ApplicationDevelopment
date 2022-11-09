@@ -8,17 +8,17 @@ namespace Year3ConsoleApp.Week3
 {
     internal class SearchArray
     {
-        public static void Search(int num)
+        public static void Search(string val)
         {
-            var arr = new List<int> { 0, 1, 2, 3, 4,  5 };
+            var arr = new List<string> { "apple", "banana", "mango" };
             int cnt = 0;
 
-            foreach(int elements in arr)
+            foreach(string elements in arr)
             {
-                if (elements == num)
+                if (String.Equals(val.ToLower(), elements.ToLower()))
                 {
                     Console.WriteLine("exists");
-                    cnt = 1;
+                    cnt = 1; // to prevent multiple rendering of "not exist"
                     break;
                 }
             }

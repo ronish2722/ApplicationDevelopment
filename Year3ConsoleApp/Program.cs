@@ -5,15 +5,13 @@ using Year3ConsoleApp.Week2;
 using Year3ConsoleApp.Week3;
 
 
-//getting input from users
-
-
 // Display title as the C# console calculator app.
 Console.WriteLine("Console Calculator in C#\r");
 Console.WriteLine("------------------------\n");
 start:
 // Declare variables and then initialize to zero.
 int num1 = 0; int num2 = 0;
+string str1 = "";
 
 // Ask the user to choose an option.
 Console.WriteLine("Choose an option from the following list:");
@@ -52,10 +50,16 @@ if (a == "1" || a == "2" || a == "3" || a == "4" || a == "9"  || a == "17")
     num2 = Convert.ToInt32(Console.ReadLine());
 }
 
-if (a == "11" || a == "12" || a == "13" || a == "15" || a == "16" || a == "18")
+if (a == "11" || a == "12" || a == "13" || a == "15" || a == "16")
 {
     Console.WriteLine("Type a number, and then press Enter");
     num1 = Convert.ToInt32(Console.ReadLine());
+}
+
+if (a == "18")
+{
+    Console.WriteLine("Enter a fruit name: ");
+    str1 = Console.ReadLine();
 }
 
 // Use a switch statement to do the math.
@@ -113,7 +117,7 @@ switch (a)
         Swap.Swapping(num1, num2);
         break;
     case "18":
-        SearchArray.Search(num1);
+        SearchArray.Search(str1);
         break;
     default:
         Interpolation.StringInterpolation();
