@@ -2,7 +2,6 @@
 using Year3ConsoleApp.Basics;
 using Year3ConsoleApp.Testing;
 using Year3ConsoleApp.Week2;
-using Year3ConsoleApp.Week3;
 
 
 // Display title as the C# console calculator app.
@@ -11,7 +10,6 @@ Console.WriteLine("------------------------\n");
 start:
 // Declare variables and then initialize to zero.
 int num1 = 0; int num2 = 0;
-string str1 = "";
 
 // Ask the user to choose an option.
 Console.WriteLine("Choose an option from the following list:");
@@ -30,16 +28,12 @@ Console.WriteLine("Press 12 for Do-While Statement Example");
 Console.WriteLine("Press 13 for For Statement Example");
 Console.WriteLine("Press 14 for For-Each Statement Example");
 Console.WriteLine("Press 14 for For-Each Statement Example");
-Console.WriteLine("Press 15 for to check prime");
-Console.WriteLine("Press 16 to check odd or even");
-Console.WriteLine("Press 17 to swap");
-Console.WriteLine("Press 18 to search in array");
 Console.Write("Your option? ");
 
 
 var a = Console.ReadLine();
 
-if (a == "1" || a == "2" || a == "3" || a == "4" || a == "9"  || a == "17")
+if (a == "1" || a == "2" || a == "3" || a == "4" || a == "9")
 {
     // Ask the user to type the first number.
     Console.WriteLine("Type a number, and then press Enter");
@@ -50,17 +44,12 @@ if (a == "1" || a == "2" || a == "3" || a == "4" || a == "9"  || a == "17")
     num2 = Convert.ToInt32(Console.ReadLine());
 }
 
-if (a == "11" || a == "12" || a == "13" || a == "15" || a == "16")
+if (a == "11" || a == "12" || a == "13")
 {
     Console.WriteLine("Type a number, and then press Enter");
     num1 = Convert.ToInt32(Console.ReadLine());
 }
 
-if (a == "18")
-{
-    Console.WriteLine("Enter a fruit name: ");
-    str1 = Console.ReadLine();
-}
 
 // Use a switch statement to do the math.
 switch (a)
@@ -96,28 +85,16 @@ switch (a)
         SelectStatement.SwitchCase();
         break;
     case "11":
-        ControlStatement.WhileStatement(num1);
+        IterationStatement.WhileStatement(num1);
         break;
     case "12":
-        ControlStatement.DoWhileStatement(num1);
+        IterationStatement.DoWhileStatement(num1);
         break;
     case "13":
-        ControlStatement.ForLoop(num1);
+        IterationStatement.ForLoop(num1);
         break;
     case "14":
-        ControlStatement.ForEachLoop();
-        break;
-    case "15":
-        Prime.IsPrime(num1);
-        break;
-    case "16":
-        OddOrEven.CheckOddEven(num1);
-        break;
-    case "17":
-        Swap.Swapping(num1, num2);
-        break;
-    case "18":
-        SearchArray.Search(str1);
+        IterationStatement.ForEachLoop();
         break;
     default:
         Interpolation.StringInterpolation();
